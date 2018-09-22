@@ -1,6 +1,8 @@
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
@@ -40,7 +42,8 @@ public class Wetter_BL extends AbstractListModel{
             
             try(BufferedWriter bw = new BufferedWriter(new FileWriter(f,false))){ // [true/false] -> optional
                 for (WetterAufnahme aufnahme : liste) {
-                    bw.write(aufnahme.toString());
+                    String line = aufnahme.getTemp() +"," + aufnahme.getLuftfeuchtigkeit() +","+aufnahme.getDate();
+                    bw.write(line);
                     bw.newLine();
                 }
             }
@@ -48,5 +51,26 @@ public class Wetter_BL extends AbstractListModel{
                 
             }
         }
+    }
+    
+    public void loadFile(File file){
+        liste.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                try {
+                    
+                    WetterAufnahme aufnahme = new  WetterAufnahme(line);
+                    liste.add(aufnahme);
+                
+                } catch (Exception e) {
+                    
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        fireIntervalAdded(this, 0, liste.size()-1);
     }
 }

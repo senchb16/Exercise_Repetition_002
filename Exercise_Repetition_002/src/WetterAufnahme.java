@@ -14,6 +14,25 @@ import java.time.format.DateTimeFormatter;
  */
 public class WetterAufnahme {
 
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public int getTemp() {
+        return temp;
+    }
+
+    public int getLuftfeuchtigkeit() {
+        return luftfeuchtigkeit;
+    }
+
+    public WetterAufnahme(String line) {
+       String[] parts = line.split(",");
+       this.temp = Integer.parseInt(parts[0]);
+       this.luftfeuchtigkeit = Integer.parseInt(parts[1]);
+       this.date = LocalDateTime.parse(parts[2]);
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM - HH:mm:ss");
@@ -29,5 +48,7 @@ public class WetterAufnahme {
     int temp;
     int luftfeuchtigkeit;
     LocalDateTime date;
+    
+    
     
 }

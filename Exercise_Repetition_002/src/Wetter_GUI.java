@@ -1,5 +1,7 @@
 
+import java.io.File;
 import java.time.LocalDateTime;
+import javax.swing.JFileChooser;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,6 +49,11 @@ public class Wetter_GUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         miLaden.setText("Datei Laden");
+        miLaden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLadenActionPerformed(evt);
+            }
+        });
         mMenü.add(miLaden);
 
         miExit.setText("Fenster schließen");
@@ -177,6 +184,21 @@ public class Wetter_GUI extends javax.swing.JFrame {
     private void miSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSpeichernActionPerformed
        bl.saveFile();
     }//GEN-LAST:event_miSpeichernActionPerformed
+
+    private void miLadenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLadenActionPerformed
+       JFileChooser chooser = new JFileChooser();
+            int res = chooser.showOpenDialog(null);
+            if(res == JFileChooser.APPROVE_OPTION){
+                File f = chooser.getSelectedFile();
+                try{
+                    bl.loadFile(f);
+                }
+                catch(Exception e){
+                  
+                }
+                
+            }
+    }//GEN-LAST:event_miLadenActionPerformed
 
     /**
      * @param args the command line arguments
