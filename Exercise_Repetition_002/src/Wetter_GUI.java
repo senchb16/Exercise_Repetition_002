@@ -53,6 +53,11 @@ public class Wetter_GUI extends javax.swing.JFrame {
         mMenü.add(miExit);
 
         miSpeichern.setText("Datei speichern");
+        miSpeichern.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSpeichernActionPerformed(evt);
+            }
+        });
         mMenü.add(miSpeichern);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +89,7 @@ public class Wetter_GUI extends javax.swing.JFrame {
             }
         });
 
+        liAusgabe.setComponentPopupMenu(mMenü);
         jScrollPane1.setViewportView(liAusgabe);
 
         jLabel3.setText("Datei");
@@ -167,6 +173,10 @@ public class Wetter_GUI extends javax.swing.JFrame {
         WetterAufnahme aufnahme = new WetterAufnahme(temp,lf,date);
         bl.add(aufnahme);
     }//GEN-LAST:event_btEingügenActionPerformed
+
+    private void miSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSpeichernActionPerformed
+       bl.saveFile();
+    }//GEN-LAST:event_miSpeichernActionPerformed
 
     /**
      * @param args the command line arguments
