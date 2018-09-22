@@ -1,3 +1,6 @@
+
+import java.time.LocalDateTime;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +12,13 @@
  * @author Christoph
  */
 public class Wetter_GUI extends javax.swing.JFrame {
-
+    Wetter_BL bl = new Wetter_BL();
     /**
      * Creates new form Wetter_GUI
      */
     public Wetter_GUI() {
         initComponents();
+        this.liAusgabe.setModel(bl);
     }
 
     /**
@@ -74,6 +78,11 @@ public class Wetter_GUI extends javax.swing.JFrame {
         lbLuftfeuchtigkeit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         btEingügen.setText("Einfügen");
+        btEingügen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEingügenActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(liAusgabe);
 
@@ -149,6 +158,15 @@ public class Wetter_GUI extends javax.swing.JFrame {
         String string = "Luftfeuchtigkeit: "+lf+"%";
         this.lbLuftfeuchtigkeit.setText(string);
     }//GEN-LAST:event_slLuftfeuchtigkeitStateChanged
+
+    private void btEingügenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEingügenActionPerformed
+        int temp = this.slTemperatur.getValue();
+        int lf = this.slLuftfeuchtigkeit.getValue();
+        LocalDateTime date = LocalDateTime.now();
+        
+        WetterAufnahme aufnahme = new WetterAufnahme(temp,lf,date);
+        bl.add(aufnahme);
+    }//GEN-LAST:event_btEingügenActionPerformed
 
     /**
      * @param args the command line arguments
