@@ -57,6 +57,11 @@ public class Wetter_GUI extends javax.swing.JFrame {
         mMenü.add(miLaden);
 
         miExit.setText("Fenster schließen");
+        miExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miExitActionPerformed(evt);
+            }
+        });
         mMenü.add(miExit);
 
         miSpeichern.setText("Datei speichern");
@@ -199,6 +204,10 @@ public class Wetter_GUI extends javax.swing.JFrame {
                 
             }
     }//GEN-LAST:event_miLadenActionPerformed
+
+    private void miExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitActionPerformed
+      System.exit(0);
+    }//GEN-LAST:event_miExitActionPerformed
 
     /**
      * @param args the command line arguments

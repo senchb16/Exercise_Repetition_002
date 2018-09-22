@@ -20,6 +20,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Fenster schlie&#xdf;en"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miExitActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="miSpeichern">
           <Properties>

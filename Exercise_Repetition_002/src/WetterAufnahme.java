@@ -45,9 +45,9 @@ public class WetterAufnahme {
         this.luftfeuchtigkeit = luftfeuchtigkeit;
         this.date = date;
     }
-    int temp;
-    int luftfeuchtigkeit;
-    LocalDateTime date;
+    private int temp;
+    private int luftfeuchtigkeit;
+    private LocalDateTime date;
     
     
     
