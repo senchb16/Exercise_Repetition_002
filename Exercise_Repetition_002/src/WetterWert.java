@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Christoph
  */
-public class WetterAufnahme {
+public class WetterWert {
 
     public LocalDateTime getDate() {
         return date;
@@ -26,7 +26,7 @@ public class WetterAufnahme {
         return luftfeuchtigkeit;
     }
 
-    public WetterAufnahme(String line) {
+    public WetterWert(String line) {
        String[] parts = line.split(",");
        this.temp = Integer.parseInt(parts[0]);
        this.luftfeuchtigkeit = Integer.parseInt(parts[1]);
@@ -40,7 +40,7 @@ public class WetterAufnahme {
         return String.format("%s - %d° - %d%s",date.format(dtf),temp, luftfeuchtigkeit,s);
     }
 
-    public WetterAufnahme(int temp, int luftfeuchtigkeit, LocalDateTime date) {
+    public WetterWert(int temp, int luftfeuchtigkeit, LocalDateTime date) {
         this.temp = temp;
         this.luftfeuchtigkeit = luftfeuchtigkeit;
         this.date = date;

@@ -18,8 +18,8 @@ import javax.swing.JFileChooser;
  *
  * @author Christoph
  */
-public class Wetter_BL extends AbstractListModel{
-    ArrayList<WetterAufnahme> liste = new ArrayList<WetterAufnahme>();
+public class WetterModell extends AbstractListModel{
+    ArrayList<WetterWert> liste = new ArrayList<WetterWert>();
 
     @Override
     public int getSize() {
@@ -31,7 +31,7 @@ public class Wetter_BL extends AbstractListModel{
         return liste.get(i);
     }
 
-    public void add(WetterAufnahme aufnahme) {
+    public void add(WetterWert aufnahme) {
         liste.add(aufnahme);
         fireIntervalAdded(this, 0, liste.size()-1);
     }
@@ -41,7 +41,7 @@ public class Wetter_BL extends AbstractListModel{
             File f = chooser.getSelectedFile();
             
             try(BufferedWriter bw = new BufferedWriter(new FileWriter(f,false))){ // [true/false] -> optional
-                for (WetterAufnahme aufnahme : liste) {
+                for (WetterWert aufnahme : liste) {
                     String line = aufnahme.getTemp() +"," + aufnahme.getLuftfeuchtigkeit() +","+aufnahme.getDate();
                     bw.write(line);
                     bw.newLine();
@@ -61,7 +61,7 @@ public class Wetter_BL extends AbstractListModel{
 
                 try {
                     
-                    WetterAufnahme aufnahme = new  WetterAufnahme(line);
+                    WetterWert aufnahme = new  WetterWert(line);
                     liste.add(aufnahme);
                 
                 } catch (Exception e) {

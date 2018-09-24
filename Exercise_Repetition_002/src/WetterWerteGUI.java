@@ -13,12 +13,12 @@ import javax.swing.JFileChooser;
  *
  * @author Christoph
  */
-public class Wetter_GUI extends javax.swing.JFrame {
-    Wetter_BL bl = new Wetter_BL();
+public class WetterWerteGUI extends javax.swing.JFrame {
+    WetterModell bl = new WetterModell();
     /**
      * Creates new form Wetter_GUI
      */
-    public Wetter_GUI() {
+    public WetterWerteGUI() {
         initComponents();
         this.liAusgabe.setModel(bl);
     }
@@ -189,7 +189,7 @@ public class Wetter_GUI extends javax.swing.JFrame {
         int lf = this.slLuftfeuchtigkeit.getValue();
         LocalDateTime date = LocalDateTime.now();
         
-        WetterAufnahme aufnahme = new WetterAufnahme(temp,lf,date);
+        WetterWert aufnahme = new WetterWert(temp,lf,date);
         bl.add(aufnahme);
     }//GEN-LAST:event_btEingügenActionPerformed
 
@@ -233,20 +233,21 @@ public class Wetter_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Wetter_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WetterWerteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Wetter_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WetterWerteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Wetter_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WetterWerteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Wetter_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WetterWerteGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Wetter_GUI().setVisible(true);
+                new WetterWerteGUI().setVisible(true);
             }
         });
     }
