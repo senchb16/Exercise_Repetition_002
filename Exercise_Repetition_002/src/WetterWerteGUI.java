@@ -198,7 +198,7 @@ public class WetterWerteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_miSpeichernActionPerformed
 
     private void miLadenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLadenActionPerformed
-       JFileChooser chooser = new JFileChooser();
+       JFileChooser chooser = new JFileChooser(".");
             int res = chooser.showOpenDialog(null);
             if(res == JFileChooser.APPROVE_OPTION){
                 File f = chooser.getSelectedFile();

@@ -36,7 +36,7 @@ public class WetterModell extends AbstractListModel{
         fireIntervalAdded(this, 0, liste.size()-1);
     }
     public void saveFile(){
-           JFileChooser chooser = new JFileChooser();
+           JFileChooser chooser = new JFileChooser(".");
         if(chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
             File f = chooser.getSelectedFile();
             
