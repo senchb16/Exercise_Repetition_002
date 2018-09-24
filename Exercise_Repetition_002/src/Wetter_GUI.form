@@ -60,35 +60,30 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="slTemperatur" max="32767" attributes="0"/>
-                              <Component id="lbTemp" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
-                              <Component id="slLuftfeuchtigkeit" alignment="0" pref="290" max="32767" attributes="0"/>
-                              <Component id="lbLuftfeuchtigkeit" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
-                              <Component id="btEingügen" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="276" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="slTemperatur" max="32767" attributes="0"/>
+                      <Component id="lbTemp" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                      <Component id="slLuftfeuchtigkeit" alignment="0" pref="290" max="32767" attributes="0"/>
+                      <Component id="lbLuftfeuchtigkeit" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                      <Component id="btEingügen" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" min="-2" pref="276" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -120,8 +115,12 @@
   <SubComponents>
     <Component class="javax.swing.JSlider" name="slTemperatur">
       <Properties>
+        <Property name="majorTickSpacing" type="int" value="10"/>
         <Property name="maximum" type="int" value="40"/>
         <Property name="minimum" type="int" value="-20"/>
+        <Property name="minorTickSpacing" type="int" value="5"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
         <Property name="value" type="int" value="30"/>
       </Properties>
       <Events>
@@ -137,6 +136,10 @@
     </Component>
     <Component class="javax.swing.JSlider" name="slLuftfeuchtigkeit">
       <Properties>
+        <Property name="majorTickSpacing" type="int" value="20"/>
+        <Property name="minorTickSpacing" type="int" value="10"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
         <Property name="value" type="int" value="20"/>
       </Properties>
       <Events>
@@ -182,7 +185,15 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Datei"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
